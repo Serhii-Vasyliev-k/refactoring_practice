@@ -4,11 +4,19 @@
 interface Workable
 {
     public function canCode();
+}
+
+interface ProgrammerInterface extends Workable
+{
     public function code();
+}
+
+interface TesterInterface extends Workable
+{
     public function test();
 }
 
-class Programmer implements Workable
+class Programmer implements ProgrammerInterface, TesterInterface
 {
     public function canCode()
     {
@@ -24,15 +32,11 @@ class Programmer implements Workable
     }
 }
 
-class Tester implements Workable
+class Tester implements TesterInterface
 {
     public function canCode()
     {
         return false;
-    }
-    public function code()
-    {
-        throw new Exception('Opps! I can not code');
     }
     public function test()
     {
