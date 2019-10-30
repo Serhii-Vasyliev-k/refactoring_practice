@@ -2,7 +2,7 @@
 
 interface Configure
 {
-    public function Configure();
+    public function configure();
 }
 
 abstract class Connection
