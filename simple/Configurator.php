@@ -1,6 +1,6 @@
 <?php
 
-interface Configure
+interface Configurator
 {
     public function configure();
 }
@@ -18,7 +18,7 @@ abstract class Connection
 
 }
 
-class MailConfigurator extends Connection implements Configure
+class MailConfigurator extends Connection implements Configurator
 {
     public function getSender()
     {
@@ -32,7 +32,7 @@ class MailConfigurator extends Connection implements Configure
     }
 }
 
-class DatabaseConfigurator extends Connection implements Configure
+class DatabaseConfigurator extends Connection implements Configurator
 {
     public function getDriver()
     {
@@ -48,7 +48,7 @@ class DatabaseConfigurator extends Connection implements Configure
     }
 }
 
-class CacheConfigurator extends Connection implements Configure
+class CacheConfigurator extends Connection implements Configurator
 {
     public function getStorage()
     {
