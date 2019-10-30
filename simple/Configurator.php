@@ -1,8 +1,10 @@
 <?php
+
 interface Configure
 {
     public function Configure();
 }
+
 abstract class Connection
 {
     protected $settings;
@@ -15,6 +17,7 @@ abstract class Connection
     }
 
 }
+
 class MailConfigurator extends Connection implements Configure
 {
     public function getSender()
