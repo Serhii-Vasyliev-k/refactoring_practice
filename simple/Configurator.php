@@ -1,16 +1,22 @@
 <?php
-
-class MailConfigurator
+interface Configure
 {
-    private $settings;
+    public function Configure();
+}
+abstract class Connection
+{
+    protected $settings;
 
-    private $configuration;
+    protected $configuration;
 
     public function setConnection($settings)
     {
         $this->settings = $settings;
     }
 
+}
+class MailConfigurator extends Connection implements Configure
+{
     public function getSender()
     {
         return 'mail sender';
@@ -23,17 +29,8 @@ class MailConfigurator
     }
 }
 
-class DatabaseConfigurator
+class DatabaseConfigurator extends Connection implements Configure
 {
-    private $settings;
-
-    private $configuration;
-
-    public function setConnection($settings)
-    {
-        $this->settings = $settings;
-    }
-
     public function getDriver()
     {
         return 'get some db driver';
@@ -48,17 +45,8 @@ class DatabaseConfigurator
     }
 }
 
-class CacheConfigurator
+class CacheConfigurator extends Connection implements Configure
 {
-    private $settings;
-
-    private $configuration;
-
-    public function setConnection($settings)
-    {
-        $this->settings = $settings;
-    }
-
     public function getStorage()
     {
         return 'get some cache storage';
