@@ -3,6 +3,9 @@
 //Hint - use Single Responsibility Principle Violation
 class Report
 {
+    public $title = 'Report Title';
+    public $date = '2016-04-21';
+
     public function getTitle()
     {
         return 'Report Title';
@@ -10,19 +13,26 @@ class Report
 
     public function getDate()
     {
-        return '2016-04-21';
+        return '';
     }
-
+}
+class ReportContent extends Report
+{
     public function getContents()
     {
         return [
-            'title' => $this->getTitle(),
-            'date' => $this->getDate(),
+            'title' => $this->title;
+            'date' => $this->date;
         ];
     }
-
+}
+class ReportJson extends Report
+{
     public function formatJson()
     {
-        return json_encode($this->getContents());
+        return [
+            'title' => $this->title,
+            'date' => $this->date,
+        ];
     }
 }
