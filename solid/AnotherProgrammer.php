@@ -21,6 +21,8 @@ class Tester
     }
 }
 
+/** Что если добавить еще класс Designer с методом draw() **/
+
 class Designer implements Worker
 {
     public function work()
@@ -28,8 +30,6 @@ class Designer implements Worker
         return 'рainting';
     }
 }
-
-/** Что если добавить еще класс Designer с методом draw() **/
 
 class ProjectManagement
 {
