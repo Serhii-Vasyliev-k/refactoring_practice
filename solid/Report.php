@@ -6,14 +6,22 @@ class Report
     public $title = 'Report Title';
     public $date = '2016-04-21';
 
+    public function setTitle($title)
+    {
+        $this->title = $title;
+    }
+    public function setDate($date)
+    {
+        $this->date = $date;
+    }
     public function getTitle()
     {
-        return 'Report Title';
+        return $this->title;
     }
 
     public function getDate()
     {
-        return '';
+        return $this->date;
     }
 }
 class ReportContent extends Report
